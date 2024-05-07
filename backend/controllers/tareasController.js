@@ -3,7 +3,7 @@ const Tarea = require('../models/tareasModel')
 
 const getTareas = asyncHandler( async (req, res) => {
 
-    const tareas = await Tarea.find({user: req.user.id})
+    const tareas = await Tarea.find();
     res.status(200).json(tareas)
 })
 
