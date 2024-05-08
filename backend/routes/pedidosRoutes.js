@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {protect} = require('../middleware/authMiddleware')
 
-const { deletePedido, getPedido, crearPedido, updatePedido} = require('../controllers/tareasController')
+const { deletePedido, getPedido, crearPedido, updatePedido} = require('../controllers/pedidosController')
 
 router.route('/').get(protect, getPedido).post(protect, crearPedido)
 //router.get('/', protect, getTareas)

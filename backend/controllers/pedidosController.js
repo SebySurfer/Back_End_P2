@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const Pedido = require('../models/tareasModel')
+const Pedido = require('../models/pedidosModel')
 
 const getPedido = asyncHandler( async (req, res) => {
 
@@ -8,13 +8,13 @@ const getPedido = asyncHandler( async (req, res) => {
 })
 
 const crearPedido = asyncHandler( async (req,res) => {
-    if(!req.body.descripcion) {
+    if(!req.body.pedido) {
         res.status(400)
         throw new Error('Por favor teclea tu pedido')
     }
     
     const pedido = await Pedido.create({
-        descripcion : req.body.descripcion,
+        pedido : req.body.pedido,
         user: req.user.id
     })
 
