@@ -1,59 +1,59 @@
 const asyncHandler = require('express-async-handler')
-const Tarea = require('../models/tareasModel')
+const Pedido = require('../models/tareasModel')
 
-const getTareas = asyncHandler( async (req, res) => {
+const getPedido = asyncHandler( async (req, res) => {
 
-    const tareas = await Tarea.find({user: req.user.id})
-    res.status(200).json(tareas)
+    const pedido = await Pedido.find({user: req.user.id})
+    res.status(200).json(pedido)
 })
 
-const crearTareas = asyncHandler( async (req,res) => {
+const crearPedido = asyncHandler( async (req,res) => {
     if(!req.body.descripcion) {
         res.status(400)
-        throw new Error('Por favor teclea una descripción')
+        throw new Error('Por favor teclea tu pedido')
     }
     
-    const tarea = await Tarea.create({
+    const pedido = await Pedido.create({
         descripcion : req.body.descripcion,
         user: req.user.id
     })
 
-    res.status(201).json(tarea)
+    res.status(201).json(pedido)
 
 })
 
-const updateTareas = asyncHandler( async (req, res) => {
+const updatePedido = asyncHandler( async (req, res) => {
     //buscamos la tarea que deseamos modificar
-    const tarea = await Tarea.findById(req.params.id)
+    const pedido = await Pedido.findById(req.params.id)
 
-    if(!tarea) {
+    if(!pedido) {
         res.status(404)
-        throw new Error('La tarea no existe')
+        throw new Error('El pedido no existe')
     }
 
-    const tareaUpdated = await Tarea.findByIdAndUpdate
+    const pedidoUpdated = await Pedido.findByIdAndUpdate
     (req.params.id, req.body, {new: true})
 
-    res.status(200).json(tareaUpdated)
+    res.status(200).json(pedidoUpdated)
 })
 
-const deleteTareas = asyncHandler(async (req, res) => {
+const deletePedido = asyncHandler(async (req, res) => {
      //buscamos la tarea que deseamos modificar
-     const tarea = await Tarea.findById(req.params.id)
+     const pedido = await Pedido.findById(req.params.id)
 
-     if(!tarea) {
+     if(!pedido) {
          res.status(404)
-         throw new Error('La tarea no existe')
+         throw new Error('El pedido no existe')
      }
  
-    await Tarea.deleteOne(tarea) 
+    await Pedido.deleteOne(pedido) 
      
     res.status(200).json({id: req.params.id})
 })
 
 module.exports = {
-    getTareas,
-    crearTareas, 
-    updateTareas,
-    deleteTareas
+    getPedido,
+    crearPedido, 
+    updatePedido,
+    deletePedido
 }

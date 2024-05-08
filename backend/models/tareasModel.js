@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
-const tareaSchema = mongoose.Schema({
+const pedidoSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
-    descripcion: {
+    pedido: {
         type: String,
-        required: [true, "Por favor teclea una descripcion"]
+        required: [true, "Por favor teclea cual es el fidget spinner que quieres"]
     }
 }, {
     timestamps: true
 })
 
-module.exports = mongoose.model('Tarea', tareaSchema)
+module.exports = mongoose.model('Tarea', pedidoSchema)
