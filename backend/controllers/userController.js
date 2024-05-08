@@ -12,7 +12,7 @@ const register = asyncHandler( async (req, res) => {
     
     if (!name || !email || !password) {
         res.status(400)
-        throw new Error ('Faltan datos')
+        throw new Error ('Faltan datos');
     }
     
 
