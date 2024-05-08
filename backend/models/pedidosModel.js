@@ -14,4 +14,4 @@ const pedidoSchema = mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('Tarea', pedidoSchema)
+module.exports = mongoose.model('Pedido', pedidoSchema)
