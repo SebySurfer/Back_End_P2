@@ -31,7 +31,10 @@ const register = asyncHandler( async (req, res) => {
     const user = await User.create({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword, 
+        delivery_Adress, 
+        contact_Number
+
     })
     
     res.status(201).json(user)
