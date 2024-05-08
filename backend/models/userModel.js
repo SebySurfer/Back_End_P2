@@ -17,7 +17,19 @@ const userSchema = mongoose.Schema({
     esAdmin: {
         type: Boolean,
         default: false
+    }, 
+    
+    delivery_Adress: {
+        type: String, 
+        required: [true, "Por favor teclea tu direccion completo para mandar el spinner"]
+    }, 
+
+    contact_Number: {
+        type: Number,
+        required: [true, "Por favor teclea tu numero de contacto por si se pierde el paquete"]
     }
+    
+
 }, {
     timestamps: true
 })
