@@ -2,7 +2,6 @@ const express = require('express')
 const colors = require('colors')
 const connectDB = require('./config/db')
 const dotenv = require('dotenv').config()
-const {errorHandler} = require ('./middleware/errorMiddleware')
 
 connectDB()
 
@@ -16,6 +15,5 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/pedidos', require('./routes/pedidosRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
-app.use(errorHandler)
 
 app.listen(port, () => console.log(`Servidor iniciado en el puerto ${port}`))
