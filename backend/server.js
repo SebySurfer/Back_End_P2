@@ -10,7 +10,11 @@ const port = process.env.PORT || 6000
 
 const app = express()
 
-app.use(cors());
+const corsOptions = {
+    origin: 'file:///Users/Sebastian%201/Desktop/Frontend/Prog_Para_Int_Proyecto-Web1/User_Orders.html', // Replace this with the actual URL of your frontend
+};
+app.use(cors(corsOptions));
+
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
