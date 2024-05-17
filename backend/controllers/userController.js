@@ -7,7 +7,7 @@ const register = asyncHandler( async (req, res) => {
     const {name, email, delivery_Adress, contact_Number} = req.body
 
     //verificar que me pasen los datos
-    
+
     if (!name || !email || !delivery_Adress || !contact_Number) {
         res.status(400)
         throw new Error ('Faltan datos');
