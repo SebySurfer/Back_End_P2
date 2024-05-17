@@ -13,6 +13,8 @@ const app = express()
 const corsOptions = {
     origin: 'http://127.0.0.1:5500/User_Orders.html?name=Sebastian+W.&email=t67ftfhi%40gmail.com&delivery-address=7979rt&contact-number=6r856e#', // Replace this with the actual URL of your frontend
 };
+
+
 app.use(cors());
 
 app.use(express.json())
